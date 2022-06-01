@@ -6,14 +6,15 @@ use Illuminate\View\Component;
 
 class Alert extends Component
 {
+    public $color;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($color = 'orange')
     {
-        //
+        $this->color = $color;
     }
 
     /**
@@ -25,4 +26,11 @@ class Alert extends Component
     {
         return view('components.alert');
     }
+
+    public function prueba(){
+        if($this->color == "red"){
+            return "esta es una alerta de peligro";
+        }
+    }
+
 }
