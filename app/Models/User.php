@@ -60,8 +60,35 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    //relacion uno a uno 
     public function profile(){
         return $this->hasOne('App\Models\Profile');
     }
+
+    //relacion uno a muchos 
+    public function posts(){
+        return $this->hasMany('App\Models\Post');
+    }
+
+    //relacion uno a muchos 
+    public function videos(){
+        return $this->hasMany('App\Models\Video');
+    }
+
     
+    //relacion uno a muchos 
+    public function comments(){
+        return $this->hasMany('App\Models\Comment');
+    }
+
+    //relacion muchos a muchos 
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
+    }
+
+    //relacion uno a uno poliformica
+
+    public function image(){
+        return $this->morphOne('App\Models\Image', 'imageable');
+    }
 }
